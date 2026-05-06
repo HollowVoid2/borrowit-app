@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  final Map<String, String> loan;
+
+  const DetailScreen({super.key, required this.loan});
 
   @override
   Widget build(BuildContext context) {
@@ -9,16 +11,16 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detalle'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Objeto: Cargador'),
-            SizedBox(height: 10),
-            Text('Prestado a: Juan'),
-            SizedBox(height: 10),
-            Text('Fecha devolución: 10/05'),
+            Text('Objeto: ${loan["objeto"]}'),
+            const SizedBox(height: 10),
+            Text('Prestado a: ${loan["persona"]}'),
+            const SizedBox(height: 10),
+            Text('Fecha devolución: ${loan["fecha"]}'),
           ],
         ),
       ),
